@@ -86,10 +86,9 @@ final class EsquemaBD {
         String[] tablas = {"clase", "rareza", "personaje", "objeto", "inventario", "habilidad"};
         try (Statement st = con.createStatement()) {
             for (String t : tablas) {
-                try (ResultSet rs = st.executeQuery("SELECT COUNT(*) FROM " + t)) {
-                    if (rs.next() && rs.getInt(1) > 0) {
-                        return false;
-                    }
+                ResultSet rs = st.executeQuery("SELECT COUNT(*) FROM " + t);
+                if (rs.getInt(1) > 0) {
+                    return false;
                 }
             }
         }
