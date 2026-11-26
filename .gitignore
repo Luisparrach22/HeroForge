@@ -38,3 +38,6 @@ nbproject/private/
 
 # PDFs
 *.pdf
+
+# Librerias del proyecto (si se suben)
+!lib/*.jar
